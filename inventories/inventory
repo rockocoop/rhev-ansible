@@ -1,5 +1,8 @@
-[OSEV3:vars]
+[OSEv3:children]
+nodes
 
+
+[OSEv3:vars]
 
 
 [OSEv3:children]

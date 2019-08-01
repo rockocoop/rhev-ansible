@@ -3,7 +3,7 @@
   gather_facts: false
 
   vars:
-    vmstate: present
+    vmstate: absent
 
   roles:
   - rhev_vm

@@ -8,10 +8,10 @@
     password: "{{rhvmpassword}}"
   delegate_to: localhost
 
-- name: Creates a new Virtual Machine
+- name: Virtual Machine {{ vmstate }} 
   ovirt_vm:
     auth: "{{ ovirt_auth }}"
-    state: present
+    state: "{{vmstate}}"
     name: "{{ inventory_hostname }}"
     template: "{{template}}"
     cluster: Default
