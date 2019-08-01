@@ -1,0 +1,3 @@
+rhvmurl: rhvm.sales.lab.tlv.redhat.com
+rhvmpassword: admin
+template: rhel76

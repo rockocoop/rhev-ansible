@@ -1,0 +1,5 @@
+- hosts: OSEv3
+  serial: "100%"
+
+  roles:
+  - rhev_create_instance 

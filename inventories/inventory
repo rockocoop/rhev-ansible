@@ -1,0 +1,9 @@
+[OSEV3:vars]
+
+
+
+[OSEv3:children]
+nodes
+
+[nodes]
+osm1
