@@ -4,6 +4,8 @@
 
   vars:
     vmstate: absent
+    vmpower: stopped
 
   roles:
-  - rhev_vm
+  - rhev_vm_power
+  - rhev_vm_instance

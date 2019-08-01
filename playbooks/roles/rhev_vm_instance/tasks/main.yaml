@@ -15,5 +15,12 @@
     name: "{{ inventory_hostname }}"
     template: "{{template}}"
     cluster: Default
+    cloud_init_nics:
+    - nic_name: eth0
+      nic_boot_protocol: static
+      nic_ip_address: 10.35.76.211
+      nic_netmask: 255.255.255.0
+      nic_gateway: 10.35.76.254
+      nic_on_boot: true
   delegate_to: localhost
 

@@ -4,6 +4,8 @@
 
   vars:
     vmstate: present
+    vmpower: running
 
   roles:
-  - rhev_vm
+  - rhev_vm_instance
+  - rhev_vm_power

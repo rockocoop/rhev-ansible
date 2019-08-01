@@ -1,0 +1,17 @@
+---
+
+- name: Obtain SSO token with using username/password credentials
+  ovirt_auth:
+    url: "https://{{rhvmurl}}/ovirt-engine/api"
+    username: admin@internal
+    insecure: yes
+    password: "{{rhvmpassword}}"
+  delegate_to: localhost
+
+- name: Virtual Machine {{ vmstate }} 
+  ovirt_vm:
+    auth: "{{ ovirt_auth }}"
+    state: "{{vmpower}}"
+    name: "{{ inventory_hostname }}"
+  delegate_to: localhost
+
