@@ -8,4 +8,6 @@
 
   roles:
   - rhev_vm_instance
+  - rhev_vm_disks
   - rhev_vm_power
+  

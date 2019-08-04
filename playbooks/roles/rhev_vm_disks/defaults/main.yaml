@@ -4,3 +4,4 @@ template: rhel76cloudinit
 memory: 4GiB
 cores: 2
 sockets: 1
+storageDomain: vmstore

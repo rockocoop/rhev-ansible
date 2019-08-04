@@ -1,6 +1,6 @@
 ---
 
-- name: Obtain SSO token with using username/password credentials
+- name: Obtain SSO token 
   ovirt_auth:
     url: "https://{{rhvmurl}}/ovirt-engine/api"
     username: admin@internal
@@ -8,19 +8,23 @@
     password: "{{rhvmpassword}}"
   delegate_to: localhost
 
-- name: Virtual Machine {{ vmstate }} 
+- name: Virtual Machine {{ vmstate }}
   ovirt_vm:
     auth: "{{ ovirt_auth }}"
     state: "{{vmstate}}"
     name: "{{ inventory_hostname }}"
     template: "{{template}}"
     cluster: Default
-    cloud_init_nics:
-    - nic_name: eth0
+    memory: "{{ memory }}"
+    cpu_cores: "{{cores}}"
+    cpu_sockets: "{{sockets}}"
+    cloud_init:
       nic_boot_protocol: static
-      nic_ip_address: 10.35.76.211
-      nic_netmask: 255.255.255.0
-      nic_gateway: 10.35.76.254
+      nic_ip_address: "{{ ansible_ssh_host }}"
+      nic_netmask: "{{ netmask }}"
+      nic_gateway: "{{ gateway }}"
+      nic_name: eth0
       nic_on_boot: true
+      host_name: "{{ inventory_hostname }}"
+    cloud_init_persist: yes
   delegate_to: localhost
-

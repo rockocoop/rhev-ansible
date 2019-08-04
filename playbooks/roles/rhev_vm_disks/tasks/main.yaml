@@ -1,0 +1,26 @@
+---
+
+- name: Obtain SSO token 
+  ovirt_auth:
+    url: "https://{{rhvmurl}}/ovirt-engine/api"
+    username: admin@internal
+    insecure: yes
+    password: "{{rhvmpassword}}"
+  delegate_to: localhost
+  when: disks is defined
+
+- name: add disk to vm
+  ovirt_disk:
+    auth: "{{ ovirt_auth }}"
+    name: "{{inventory_hostname}}_{{index}}"
+    vm_name: "{{inventory_hostname}}"
+    size: "{{ item }}GiB"
+    format: cow
+    interface: virtio_scsi
+    storage_domain: "{{storageDomain}}"
+  with_items:
+      - "{{disks}}"
+  loop_control:
+    index_var: index
+  delegate_to: localhost
+  when: disks is defined    

@@ -3,10 +3,13 @@ nodes
 
 
 [OSEv3:vars]
-
+template=rhel76cloudinit
 
 [OSEv3:children]
 nodes
 
 [nodes]
-osm1
+osm1  ansible_ssh_host=10.35.76.211 netmask=255.255.255.0 gateway=10.35.76.254
+osm2  ansible_ssh_host=10.35.76.212 netmask=255.255.255.0 gateway=10.35.76.254 disks=[10,50]
+#osm3  ansible_ssh_host=10.35.76.213 netmask=255.255.255.0 gateway=10.35.76.254
+
